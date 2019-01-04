@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class ListContacts extends Component {
   static propTypes = {
@@ -17,6 +17,10 @@ class ListContacts extends Component {
     }))
   }
 
+  clearQuery = () => {
+    this.UpdateQuery('');
+  }
+
   render() {
     const { query } = this.state
     const { contacts, onDeleteContact } = this.props
@@ -24,8 +28,8 @@ class ListContacts extends Component {
     const ShowingContact = query === ''
       ? contacts
       : contacts.filter((c) => (
-          c.name.toLowerCase().includes(query.toLowerCase()) 
-        ))
+        c.name.toLowerCase().includes(query.toLowerCase())
+      ))
 
     return (
       <div className="list-contacts">
@@ -38,6 +42,15 @@ class ListContacts extends Component {
             onChange={(event) => (this.UpdateQuery(event.target.value))}
           />
         </div>
+
+        {ShowingContact.length !== contacts.length && (
+          <div className="showing-contacts">
+            <span>
+              Now showing {ShowingContact.length} of {contacts.length}
+            </span>
+            <button onClick={this.clearQuery}>Show all of contacts</button>
+          </div>
+        )}
 
         <ol className='contact-list'>
           {ShowingContact.map((contact) => (
@@ -52,7 +65,7 @@ class ListContacts extends Component {
                 <p>{contact.name}</p>
                 <p>{contact.handle}</p>
               </div>
-              <button 
+              <button
                 onClick={() => onDeleteContact(contact)}
                 className='contact-remove'>
                 Remove
