@@ -27,7 +27,7 @@ class App extends Component {
       })
     }))
 
-    ContactsAPI.removeContact(contact);
+    ContactsAPI.remove(contact);
   }
 
   render() {
