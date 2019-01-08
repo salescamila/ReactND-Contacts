@@ -4,7 +4,7 @@ This repo has the Contacts Project and the backend server needed for it's operat
 
 ## Contacts Project
 
-This is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+[react-contacts-app](react-contacts-app) is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
 ## Server for Contacts Project
 
